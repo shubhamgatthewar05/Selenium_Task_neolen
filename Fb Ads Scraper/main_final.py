@@ -18,8 +18,8 @@ import urllib.parse
 class FacebookAdsScraper:
     def __init__(self):
         # Credentials
-        self.email = "9922241580"
-        self.password = "Shubham@9922"
+        self.email = ""
+        self.password = "922"
         
         # Setup directories
         self.base_dir = os.path.join(os.getcwd(), 'facebook_ads_data')
