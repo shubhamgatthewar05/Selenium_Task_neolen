@@ -1,0 +1,2 @@
+FB_EMAIL = "gatthewarshubham145@gmail.com"
+FB_PASSWORD = "Shubham@2004"

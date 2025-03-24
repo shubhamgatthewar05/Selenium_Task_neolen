@@ -1,0 +1,2 @@
+2025-01-09 14:43:41.435011: Timeout waiting for results element on amazon.com
+2025-01-09 14:44:13.341872: Timeout waiting for results element on walmart.com

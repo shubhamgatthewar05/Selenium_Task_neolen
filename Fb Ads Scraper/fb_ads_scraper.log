@@ -1,0 +1,116 @@
+2025-01-09 14:47:35,238 - ERROR - Error in main scraper execution: [Errno 2] No such file or directory: 'shop_domain.csv'
+2025-01-09 14:50:24,578 - INFO - Starting scrape for rei.com
+2025-01-09 14:51:11,654 - INFO - Starting scrape for williams-sonoma.com
+2025-01-09 14:52:06,133 - INFO - Starting scrape for potterybarn.com
+2025-01-09 14:52:56,586 - INFO - Starting scrape for anthropologie.com
+2025-01-09 14:55:53,524 - INFO - Starting scrape for rei.com
+2025-01-09 14:56:32,726 - INFO - Starting scrape for williams-sonoma.com
+2025-01-09 14:57:06,555 - INFO - Starting scrape for potterybarn.com
+2025-01-09 14:57:51,421 - INFO - Starting scrape for anthropologie.com
+2025-01-09 14:58:25,731 - INFO - Starting scrape for ulta.com
+2025-01-09 14:59:21,724 - INFO - Starting scrape for sephora.com
+2025-01-09 15:00:00,965 - INFO - Starting scrape for gap.com
+2025-01-09 15:00:36,608 - INFO - Starting scrape for fossil.com
+2025-01-09 15:00:53,435 - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))': /session/978b7e1df381fca0ec46c62260226637
+2025-01-09 16:44:32,577 - INFO - Starting scrape for williams-sonoma.com
+2025-01-09 16:45:06,594 - INFO - Starting scrape for potterybarn.com
+2025-01-09 17:08:38,260 - INFO - Starting scrape for williams-sonoma.com
+2025-01-09 17:09:31,439 - INFO - Starting scrape for potterybarn.com
+2025-01-09 17:28:28,587 - INFO - Starting scrape for williams-sonoma.com
+2025-01-09 17:30:17,999 - INFO - Starting scrape for potterybarn.com
+2025-01-10 14:38:15,978 - INFO - Starting scrape for williams-sonoma.com
+2025-01-10 14:38:57,087 - INFO - Starting scrape for potterybarn.com
+2025-01-10 15:09:19,765 - ERROR - Error in main scraper execution: [Errno 2] No such file or directory: 'shop_domains.csv'
+2025-01-10 15:19:02,039 - INFO - Starting scrape for williams-sonoma.com
+2025-01-10 15:20:03,234 - INFO - Starting scrape for williams-sonoma.com
+2025-01-10 15:20:32,720 - INFO - Found 0 ads for williams-sonoma.com
+2025-01-10 15:20:50,070 - INFO - Starting scrape for potterybarn.com
+2025-01-10 15:21:19,042 - INFO - Found 0 ads for potterybarn.com
+2025-01-10 15:21:36,488 - INFO - Starting scrape for westelm.com
+2025-01-10 15:22:05,368 - INFO - Found 0 ads for westelm.com
+2025-01-10 15:28:12,563 - INFO - Creating WebDriver for williams-sonoma.com
+2025-01-10 15:28:12,564 - INFO - ====== WebDriver manager ======
+2025-01-10 15:28:13,743 - INFO - Get LATEST chromedriver version for google-chrome
+2025-01-10 15:28:14,101 - INFO - Get LATEST chromedriver version for google-chrome
+2025-01-10 15:28:14,307 - INFO - Driver [C:\Users\Asus\.wdm\drivers\chromedriver\win64\131.0.6778.264\chromedriver-win32/THIRD_PARTY_NOTICES.chromedriver] found in cache
+2025-01-10 15:28:14,312 - ERROR - Error creating WebDriver: [WinError 193] %1 is not a valid Win32 application
+2025-01-10 15:28:14,312 - ERROR - Error scraping domain williams-sonoma.com: [WinError 193] %1 is not a valid Win32 application
+2025-01-10 15:28:24,314 - INFO - Creating WebDriver for potterybarn.com
+2025-01-10 15:28:24,314 - INFO - ====== WebDriver manager ======
+2025-01-10 15:28:25,414 - INFO - Get LATEST chromedriver version for google-chrome
+2025-01-10 15:28:25,588 - INFO - Get LATEST chromedriver version for google-chrome
+2025-01-10 15:28:25,793 - INFO - Driver [C:\Users\Asus\.wdm\drivers\chromedriver\win64\131.0.6778.264\chromedriver-win32/THIRD_PARTY_NOTICES.chromedriver] found in cache
+2025-01-10 15:28:25,797 - ERROR - Error creating WebDriver: [WinError 193] %1 is not a valid Win32 application
+2025-01-10 15:28:25,797 - ERROR - Error scraping domain potterybarn.com: [WinError 193] %1 is not a valid Win32 application
+2025-01-10 15:28:35,798 - INFO - Creating WebDriver for westelm.com
+2025-01-10 15:28:35,799 - INFO - ====== WebDriver manager ======
+2025-01-10 15:28:37,178 - INFO - Get LATEST chromedriver version for google-chrome
+2025-01-10 15:28:37,364 - INFO - Get LATEST chromedriver version for google-chrome
+2025-01-10 15:28:37,523 - INFO - Driver [C:\Users\Asus\.wdm\drivers\chromedriver\win64\131.0.6778.264\chromedriver-win32/THIRD_PARTY_NOTICES.chromedriver] found in cache
+2025-01-10 15:28:37,527 - ERROR - Error creating WebDriver: [WinError 193] %1 is not a valid Win32 application
+2025-01-10 15:28:37,527 - ERROR - Error scraping domain westelm.com: [WinError 193] %1 is not a valid Win32 application
+2025-01-10 15:28:54,330 - INFO - ====== WebDriver manager ======
+2025-01-10 15:28:55,444 - INFO - Get LATEST chromedriver version for google-chrome
+2025-01-10 15:28:55,677 - INFO - Get LATEST chromedriver version for google-chrome
+2025-01-10 15:28:55,991 - INFO - Driver [C:\Users\Asus\.wdm\drivers\chromedriver\win64\131.0.6778.264\chromedriver-win32/THIRD_PARTY_NOTICES.chromedriver] found in cache
+2025-01-10 15:28:56,001 - ERROR - Error scraping domain williams-sonoma.com: [WinError 193] %1 is not a valid Win32 application
+2025-01-10 15:29:06,004 - INFO - ====== WebDriver manager ======
+2025-01-10 15:29:07,406 - INFO - Get LATEST chromedriver version for google-chrome
+2025-01-10 15:29:07,636 - INFO - Get LATEST chromedriver version for google-chrome
+2025-01-10 15:29:07,933 - INFO - Driver [C:\Users\Asus\.wdm\drivers\chromedriver\win64\131.0.6778.264\chromedriver-win32/THIRD_PARTY_NOTICES.chromedriver] found in cache
+2025-01-10 15:29:07,935 - ERROR - Error scraping domain potterybarn.com: [WinError 193] %1 is not a valid Win32 application
+2025-01-10 15:29:17,614 - INFO - Starting scrape for williams-sonoma.com
+2025-01-10 15:29:46,825 - INFO - Found 0 ads for williams-sonoma.com
+2025-01-10 15:30:04,319 - INFO - Starting scrape for potterybarn.com
+2025-01-10 15:30:33,056 - INFO - Found 0 ads for potterybarn.com
+2025-01-10 15:30:50,468 - INFO - Starting scrape for westelm.com
+2025-01-10 15:31:28,166 - INFO - Found 0 ads for westelm.com
+2025-01-10 15:38:28,282 - INFO - Starting scrape for williams-sonoma.com
+2025-01-10 15:39:03,128 - INFO - Found 0 ads for williams-sonoma.com
+2025-01-10 15:39:19,463 - INFO - Starting scrape for potterybarn.com
+2025-01-10 15:39:57,360 - INFO - Found 0 ads for potterybarn.com
+2025-01-10 15:40:13,713 - INFO - Starting scrape for westelm.com
+2025-01-10 15:40:48,846 - INFO - Found 0 ads for westelm.com
+2025-01-10 15:41:14,148 - INFO - Starting scrape for Walmart
+2025-01-10 15:41:49,127 - INFO - Found 0 ads for Walmart
+2025-01-10 15:47:16,583 - INFO - ====== WebDriver manager ======
+2025-01-10 15:47:18,194 - INFO - Get LATEST chromedriver version for google-chrome
+2025-01-10 15:47:18,541 - INFO - Get LATEST chromedriver version for google-chrome
+2025-01-10 15:47:18,831 - INFO - Driver [C:\Users\Asus\.wdm\drivers\chromedriver\win64\131.0.6778.264\chromedriver-win32/THIRD_PARTY_NOTICES.chromedriver] found in cache
+2025-01-10 15:47:18,836 - ERROR - Error during scraping: [WinError 193] %1 is not a valid Win32 application
+2025-01-10 15:50:00,037 - INFO - ====== WebDriver manager ======
+2025-01-10 15:50:01,269 - INFO - Get LATEST chromedriver version for google-chrome
+2025-01-10 15:50:01,608 - INFO - Get LATEST chromedriver version for google-chrome
+2025-01-10 15:50:01,790 - INFO - Driver [C:\Users\Asus\.wdm\drivers\chromedriver\win64\131.0.6778.264\chromedriver-win32/THIRD_PARTY_NOTICES.chromedriver] found in cache
+2025-01-10 15:50:01,801 - ERROR - Error during scraping: [WinError 193] %1 is not a valid Win32 application
+2025-01-10 15:51:02,630 - INFO - ====== WebDriver manager ======
+2025-01-10 15:51:03,754 - INFO - Get LATEST chromedriver version for google-chrome
+2025-01-10 15:51:04,141 - INFO - Get LATEST chromedriver version for google-chrome
+2025-01-10 15:51:04,412 - INFO - Driver [C:\Users\Asus\.wdm\drivers\chromedriver\win64\131.0.6778.264\chromedriver-win32/THIRD_PARTY_NOTICES.chromedriver] found in cache
+2025-01-10 15:51:04,414 - ERROR - Error during scraping: [WinError 193] %1 is not a valid Win32 application
+2025-01-10 15:52:36,098 - INFO - ====== WebDriver manager ======
+2025-01-10 15:52:37,261 - INFO - Get LATEST chromedriver version for google-chrome
+2025-01-10 15:52:37,493 - INFO - Get LATEST chromedriver version for google-chrome
+2025-01-10 15:52:37,651 - INFO - Driver [C:\Users\Asus\.wdm\drivers\chromedriver\win64\131.0.6778.264\chromedriver-win32/THIRD_PARTY_NOTICES.chromedriver] found in cache
+2025-01-10 15:52:37,660 - ERROR - Error during scraping: [WinError 193] %1 is not a valid Win32 application
+2025-01-10 15:55:23,789 - INFO - ====== WebDriver manager ======
+2025-01-10 15:55:24,753 - INFO - Get LATEST chromedriver version for google-chrome
+2025-01-10 15:55:25,749 - INFO - Get LATEST chromedriver version for google-chrome
+2025-01-10 15:55:25,899 - INFO - Driver [C:\Users\Asus\.wdm\drivers\chromedriver\win64\131.0.6778.264\chromedriver-win32/THIRD_PARTY_NOTICES.chromedriver] found in cache
+2025-01-10 15:55:25,932 - ERROR - Error during scraping: [WinError 193] %1 is not a valid Win32 application
+2025-01-10 15:59:35,682 - INFO - ====== WebDriver manager ======
+2025-01-10 15:59:36,621 - INFO - Get LATEST chromedriver version for google-chrome
+2025-01-10 15:59:36,896 - INFO - Get LATEST chromedriver version for google-chrome
+2025-01-10 15:59:37,032 - INFO - Driver [C:\Users\Asus\.wdm\drivers\chromedriver\win64\131.0.6778.264\chromedriver-win32/THIRD_PARTY_NOTICES.chromedriver] found in cache
+2025-01-10 15:59:37,033 - ERROR - Error during scraping: [WinError 193] %1 is not a valid Win32 application
+2025-01-10 16:31:54,601 - INFO - Starting scrape for Walmart
+2025-01-10 16:32:27,955 - INFO - Found 0 ads for Walmart
+2025-01-10 16:44:48,522 - INFO - ====== WebDriver manager ======
+2025-01-10 16:44:49,550 - INFO - Get LATEST chromedriver version for google-chrome
+2025-01-10 16:44:49,868 - INFO - Get LATEST chromedriver version for google-chrome
+2025-01-10 16:44:50,025 - INFO - Driver [C:\Users\Asus\.wdm\drivers\chromedriver\win64\131.0.6778.264\chromedriver-win32/THIRD_PARTY_NOTICES.chromedriver] found in cache
+2025-01-10 16:44:50,053 - ERROR - Error during scraping: [WinError 193] %1 is not a valid Win32 application
+2025-01-10 19:30:48,385 - INFO - Starting scrape for Walmart
+2025-01-10 19:34:39,965 - INFO - Found 0 ads for Walmart
+2025-01-11 11:06:00,658 - INFO - Starting scrape for Walmart
+2025-01-11 11:06:37,166 - INFO - Found 0 ads for Walmart

@@ -1,0 +1,266 @@
+def extract_ad_data(self, ad_container):
+        """Enhanced ad data extraction with comprehensive selectors"""
+        max_retries = 3
+        for attempt in range(max_retries):
+            try:
+                ad_data = {
+                    'scrape_date': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+                    'ad_text': '',
+                    'metadata': '',
+                    'platform': '',
+                    'start_date': '',
+                    'id': '',
+                    'company_name': '',
+                    'image_url': '' 
+                }
+                
+                driver = ad_container.parent
+                driver.execute_script("arguments[0].scrollIntoView(true);", ad_container)
+                time.sleep(1)
+                
+                # Ad Text Extraction
+                text_selectors = [
+                    '[data-testid="ad_text"]',
+                    '[data-testid="ad_primary_text"]',
+                    'div[role="article"] div[dir="auto"]',
+                    '.x1cy8zhl div[dir="auto"]',
+                    '.x1iorvi4 div[dir="auto"]',
+                    '._7jyr',
+                    '.xjkvuk6 div[dir="auto"]',
+                    '.x1lliihq.xjkvuk6.x1cy8zhl'  # Added for more coverage
+                ]
+                for selector in text_selectors:
+                    try:
+                        elements = ad_container.find_elements(By.CSS_SELECTOR, selector)
+                        texts = set()  # Prevent duplication
+                        for elem in elements:
+                            text = elem.text.strip()
+                            if text and len(text) > 10 and text not in texts:
+                                texts.add(text)
+                        ad_data['ad_text'] = ' '.join(texts)
+                        if ad_data['ad_text']:
+                            break
+                    except:
+                        continue
+
+                # Company Name
+                company_selectors = [
+                    'a[role="link"] span[dir="auto"]',
+                    'h1[dir="auto"]',
+                    '[data-testid="ad_page_name"]',
+                    '.x1heor9g',
+                    '._8jh2',
+                    '.x1i10h78 span'  # Added for more accuracy
+                ]
+                for selector in company_selectors:
+                    try:
+                        element = ad_container.find_element(By.CSS_SELECTOR, selector)
+                        if element and element.text:
+                            ad_data['company_name'] = element.text.strip()
+                            break
+                    except:
+                        continue
+
+                # Image/Video URL
+                media_selectors = [
+                    'img[data-testid="ad_image"]',
+                    'video[data-testid="ad_video"]',
+                    'img[role="img"]',
+                    '.x1ey2m1c img',
+                    '.x1iorvi4 img',
+                    '.x1ll5gia.x19kjcj4.xh8yej3',
+                    'video.x1lliihq'  # Added for video support
+                ]
+                for selector in media_selectors:
+                    try:
+                        element = ad_container.find_element(By.CSS_SELECTOR, selector)
+                        if element:
+                            url = element.get_attribute('src')
+                            if url:
+                                ad_data['image_url'] = url
+                                break
+                    except:
+                        continue
+
+                # Platforms
+                platform_selectors = [
+                    '[data-testid="ad_platforms"]',
+                    '[aria-label*="Platform"]',
+                    'div[role="row"] span',
+                    '.x1xmf6yo span',
+                    '.x1lliihq span:contains("Platforms")'  # Added for explicit platform text
+                ]
+                platforms = set()
+                for selector in platform_selectors:
+                    try:
+                        elements = ad_container.find_elements(By.CSS_SELECTOR, selector)
+                        for elem in elements:
+                            text = elem.text.lower()
+                            if 'facebook' in text:
+                                platforms.add('Facebook')
+                            if 'instagram' in text:
+                                platforms.add('Instagram')
+                            if 'messenger' in text:
+                                platforms.add('Messenger')
+                            if 'whatsapp' in text:
+                                platforms.add('WhatsApp')
+                        if platforms:
+                            ad_data['platform'] = ', '.join(platforms)
+                            break
+                    except:
+                        continue
+
+                # Start Date
+                date_selectors = [
+                    '[data-testid="ad_date"]',
+                    'span:contains("Started running on")',
+                    '.x1xmf6yo span:contains("Started")',
+                    'span:contains("running on")',
+                    '.x1lliihq span:contains("Started")'  # Added for more coverage
+                ]
+                for selector in date_selectors:
+                    try:
+                        element = ad_container.find_element(By.CSS_SELECTOR, selector)
+                        if element and element.text:
+                            date_text = element.text.strip()
+                            if 'Started running on' in date_text:
+                                ad_data['start_date'] = date_text.split('Started running on')[-1].strip()
+                            else:
+                                ad_data['start_date'] = date_text
+                            break
+                    except:
+                        continue
+
+                # Ad ID
+                id_selectors = [
+                    '[data-testid="ad_id"]',
+                    'span:contains("ID:")',
+                    'div:contains("ID:")',
+                    '.xt0e3qv:contains("ID:")',
+                    '.x8t9es0.xw23nyj.xo1l8bm span:contains("ID:")',
+                    '.x1cy8zhl.x78zum5 span:contains("ID:")'  # Added for better ID capture
+                ]
+                for selector in id_selectors:
+                    try:
+                        element = ad_container.find_element(By.CSS_SELECTOR, selector)
+                        if element and element.text:
+                            text = element.text.strip()
+                            if 'ID:' in text:
+                                ad_data['id'] = text.split('ID:')[-1].strip()
+                            elif text.isdigit():  # If it's just a number
+                                ad_data['id'] = text
+                            break
+                    except:
+                        continue
+
+                # Metadata
+                metadata_selectors = [
+                    '[data-testid="ad_metadata"]',
+                    '.x1vh85ih',
+                    '.x8bgqxi.x1n2onr6',
+                    '.x1lliihq.x1iorvi4',  # Added for more metadata
+                    'div[role="row"]:not(:has(span:contains("Started")))'  # Exclude date info
+                ]
+                metadata_parts = []
+                for selector in metadata_selectors:
+                    try:
+                        elements = ad_container.find_elements(By.CSS_SELECTOR, selector)
+                        for elem in elements:
+                            text = elem.text.strip()
+                            if text and text not in ad_data['ad_text'] and 'Started running' not in text:
+                                metadata_parts.append(text)
+                        if metadata_parts:
+                            ad_data['metadata'] = ' | '.join(metadata_parts)
+                            break
+                    except:
+                        continue
+
+                # Return if we have substantial data
+                if ad_data['ad_text'] or ad_data['id'] or ad_data['start_date']:
+                    return ad_data
+                
+                if attempt < max_retries - 1:
+                    time.sleep(2)
+                    
+            except Exception as e:
+                logging.error(f"Attempt {attempt + 1} failed: {str(e)}")
+                if attempt < max_retries - 1:
+                    time.sleep(2)
+        
+        return None
+def scrape_ads(self, search_term):
+        driver = None
+        try:
+            driver = self.initialize_driver()
+            if not driver:
+                return 0
+
+            if not self.login(driver):
+                raise Exception("Failed to login to Facebook")
+
+            if not self.navigate_to_ad_library(driver, search_term):
+                raise Exception("Failed to navigate to Ad Library")
+
+            time.sleep(5)
+            ads_data = []
+            seen_texts = set()  # For deduplication
+            
+            scroll_attempts = 0
+            max_scroll_attempts = 15
+            last_height = driver.execute_script("return document.body.scrollHeight")
+
+            while len(ads_data) < 5 and scroll_attempts < max_scroll_attempts:
+                ad_container_selectors = [
+                    '.x1dr75xp.xh8yej3.x16md763',
+                    '[data-testid="ad_container"]',
+                    '[data-testid="ad_library_preview"]',
+                    '._7jyg',
+                    '.x1cy8zhl',
+                    '.x1iorvi4'
+                ]
+                
+                for selector in ad_container_selectors:
+                    containers = driver.find_elements(By.CSS_SELECTOR, selector)
+                    for container in containers[len(ads_data):]:
+                        try:
+                            driver.execute_script("arguments[0].scrollIntoView(true);", container)
+                            time.sleep(1)
+                            
+                            ad_data = self.extract_ad_data(container)
+                            if ad_data and ad_data['ad_text'] and ad_data['ad_text'] not in seen_texts:
+                                seen_texts.add(ad_data['ad_text'])
+                                ads_data.append(ad_data)
+                                logging.info(f"Found ad {len(ads_data)}: ID {ad_data['id']}")
+                                
+                                if len(ads_data) >= 5:
+                                    break
+                        except Exception as e:
+                            logging.debug(f"Error processing container: {str(e)}")
+                            continue
+                    
+                    if len(ads_data) >= 5:
+                        break
+                
+                if len(ads_data) < 5:
+                    driver.execute_script("window.scrollBy(0, 500);")
+                    time.sleep(2)
+                    new_height = driver.execute_script("return document.body.scrollHeight")
+                    if new_height == last_height:
+                        scroll_attempts += 1
+                    else:
+                        last_height = new_height
+                        scroll_attempts = 0
+
+            if ads_data:
+                self.save_data(ads_data, [ad['ad_text'] for ad in ads_data], search_term)
+                return len(ads_data)
+            else:
+                logging.error("No unique ads found")
+                return 0
+
+        except Exception as e:
+            logging.error(f"Error during scraping: {str(e)}")
+            return 0
+        finally:
+            if driver:
+                driver.quit()
