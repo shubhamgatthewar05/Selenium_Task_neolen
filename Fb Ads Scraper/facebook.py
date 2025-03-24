@@ -266,8 +266,8 @@ class FacebookAdScraper:
 
 def main():
    
-    email = "gatthewarshubham145@gmail.com"
-    password = "Shubham@2004"
+    email = "gatthewars@gmail.com"
+    password = ""
     company_name = "Flipkart"  # Company to search for
     
     try:
